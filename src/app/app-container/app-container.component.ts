@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
+import { UserService } from '../user.service';
+import { IUser } from '../interface/IUser';
 
-import { UserService } from './user.service';
-import { IUser } from './interface/IUser';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-app-container',
+  templateUrl: './app-container.component.html',
+  styleUrl: './app-container.component.scss',
 })
-export class AppComponent {
+export class AppContainerComponent {
   constructor(private userService: UserService) {}
   showBtn: boolean = false;
 

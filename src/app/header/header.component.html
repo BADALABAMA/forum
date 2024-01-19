@@ -1,0 +1,46 @@
+<header class="header">
+  <div class="header-btn-container" *ngIf="!currentUser.isAuthorized">
+    <button [title]="showBtnTitle" (click)="showRegister()">
+      {{ showBtnTitle }}
+    </button>
+
+    <button (click)="showLogin()">Login</button>
+  </div>
+
+  <div class="user-info-wrapper" *ngIf="currentUser.isAuthorized">
+    <h1>{{ currentUser.login }}</h1>
+    <h1 *ngIf="currentUser.friends?.length !== 0">
+      friends:{{ currentUser.friends?.length }}
+    </h1>
+    <img class="avatar" [src]="currentUser.img" alt="user.image" />
+  </div>
+
+  <div class="user-btn-container" *ngIf="currentUser.isAuthorized">
+    <button (click)="sendMessage()">send message</button>
+
+    <button routerLink="/chat">chat</button>
+    <button (click)="logOut()">log out</button>
+    <div class="add-friend-wrapper">
+      <button type="submit" (click)="addFriend(userLogin)">Add friend</button>
+      <input
+        class="input-header"
+        type="text"
+        [(ngModel)]="userLogin"
+        placeholder="Enter user login"
+      />
+    </div>
+  </div>
+
+  <app-signin
+    [saveData]="saveData"
+    [users]="users"
+    *ngIf="showModalRegister"
+  ></app-signin>
+
+  <app-login
+    (currentUserChange)="handleCurrentUserChange($event)"
+    [getData]="getData"
+    [users]="users"
+    *ngIf="showModalLogin"
+  ></app-login>
+</header>

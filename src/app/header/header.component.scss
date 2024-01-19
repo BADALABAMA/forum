@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  top: 0;
+  left: 0;
+  background: hsl(269, 89%, 64%);
+  width: 100%;
+  height: 100px;
+}
+.header-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.user-info-wrapper,
+.user-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 10px;
+  height: 50px;
+}
+.input-header {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid rgb(177, 177, 177);
+  background-color: transparent;
+  color: rgb(214, 216, 217);
+}
+.input-header:focus {
+  outline: none;
+  box-shadow: none;
+}

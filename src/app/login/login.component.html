@@ -1,0 +1,19 @@
+<form *ngIf="!showModal" class="modal" (ngSubmit)="login(name, password)">
+  <input
+    class="input"
+    name="name"
+    type="text"
+    [(ngModel)]="name"
+    required
+    placeholder="name"
+  />
+  <input
+    class="input"
+    type="password"
+    [(ngModel)]="password"
+    required
+    placeholder="password"
+    name="password"
+  />
+  <button class="button" type="submit">Login</button>
+</form>
